@@ -9,8 +9,9 @@ module.exports = ({ strapi }) => {
       console.log("level", level);
 
       const defaultDepth =
-        strapi.plugin("strapi-plugin-populate-deep")?.config("defaultDepth") ||
-        5;
+        strapi
+          .plugin("strapi-v5-plugin-populate-deep")
+          ?.config("defaultDepth") || 5;
 
       if (level !== undefined) {
         const depth = level ?? defaultDepth;

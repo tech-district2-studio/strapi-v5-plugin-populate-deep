@@ -41,7 +41,7 @@ To customize the default depth, add or modify the config/plugins.js file as show
 
 ```
 module.exports = ({ env }) => ({
-  'strapi-plugin-populate-deep': {
+  'strapi-v5-plugin-populate-deep': {
     config: {
       defaultDepth: 3, // Default is 5
     }
