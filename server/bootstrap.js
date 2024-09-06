@@ -2,25 +2,22 @@
 const { getFullPopulateObject } = require("./helpers");
 
 module.exports = ({ strapi }) => {
+  // Subscribe to the lifecycles that we are intrested in.
   strapi.db.lifecycles.subscribe((event) => {
     if (event.action === "beforeFindMany" || event.action === "beforeFindOne") {
-      const deepPopulate = event.params?.deeppopulate;
+      const level = event.params?.pLevel;
+      console.log("level", level);
+
       const defaultDepth =
-        strapi.plugin("custom-deep-populate")?.config("defaultDepth") || 5;
+        strapi.plugin("strapi-plugin-populate-deep")?.config("defaultDepth") ||
+        5;
 
-      console.log("Custom Plugin: Deep populate param:", deepPopulate); // Debugging
-
-      if (deepPopulate && deepPopulate[0] === "deep") {
-        const depth = deepPopulate[1] ?? defaultDepth;
-        console.log(
-          `Custom Plugin: Applying deep population with depth: ${depth}`
-        ); // Debugging
+      if (level !== undefined) {
+        const depth = level ?? defaultDepth;
+        console.log("depth", depth);
         const modelObject = getFullPopulateObject(event.model.uid, depth, []);
+        console.log("modelObject", modelObject);
         event.params.populate = modelObject.populate;
-        console.log(
-          "Custom Plugin: Final populate object:",
-          event.params.populate
-        ); // Debugging
       }
     }
   });
