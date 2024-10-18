@@ -12,6 +12,8 @@ With Strapi v5, a new [API structure validation feature](https://github.com/stra
 
 `yarn add strapi-v5-plugin-populate-deep`
 
+Also, the npm link is [here](https://www.npmjs.com/package/strapi-v5-plugin-populate-deep).
+
 # Usages
 
 The plugin allows you to deeply populate data in your Strapi queries with a new parameter pLevel. This parameter specifies the depth of population for your API responses.
@@ -56,5 +58,7 @@ This configuration will set the default depth to 3 levels across all API request
 This plugin is a fork of the original work by [Barelydead](https://github.com/Barelydead/) and can be found in the original [repository](https://github.com/Barelydead/strapi-plugin-populate-deep).
 
 The original idea for getting the populate structure was created by [tomnovotny7](https://github.com/tomnovotny7) and can be found in [this](https://github.com/strapi/strapi/issues/11836) github thread
+
+Thank you to [tooonuch](https://github.com/tooonuch) for fixing the dynamic zone population issue. He resolved a problem where components with the same attribute name were not populated correctly by using the `on` property. This improvement helps ensure proper population for all components.
 
 We appreciate and acknowledge all contributions made by the open-source community to the original project.

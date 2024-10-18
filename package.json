@@ -1,9 +1,9 @@
 {
   "name": "strapi-v5-plugin-populate-deep",
-  "version": "4.0.2",
+  "version": "4.0.3",
   "description": "Strapi v5 plugin that populates nested content.",
   "strapi": {
-    "name": "strapi-v5-plugin-populate-deep",
+    "name": "Populate Deep for Strapi v5",
     "description": "API helper to populate deep content structures for Strapi v5.",
     "kind": "plugin"
   },
